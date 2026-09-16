@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout stub — Agent Pack Store</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site">
+    <div class="wrap inner">
+      <a class="logo" href="index.html">Agent Pack Store</a>
+      <nav>
+        <a href="index.html">Landing</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="legal.html">Legal</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section style="border-bottom:none;">
+      <div class="wrap">
+        <h1 style="margin-top:0;">Checkout (stub)</h1>
+        <div class="stub-banner" role="status">
+          <strong>No payment processing.</strong>
+          This page does not charge your card. Lemon (or similar) checkout is coming later.
+          Nothing you enter here is sent to a payment API.
+        </div>
+
+        <div class="card" style="margin-bottom:1.5rem;">
+          <h3>Ollama Local Agent Kit</h3>
+          <p>SKU <code>ollama-local-agent-kit</code> · v0.1.0 · <strong>$79</strong></p>
+          <p>Digital download (zip) when real checkout ships. For now you can explore the kit on disk under <code>kits/ollama-local-agent-kit/</code>.</p>
+        </div>
+
+        <h2>Join waitlist (optional)</h2>
+        <p style="color:var(--muted);">Client-side only. Submitting opens your mail app or shows a confirmation — no server, no charge.</p>
+
+        <form class="stub-form" id="waitlist" action="#" method="get">
+          <label for="email">Email (optional)</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" />
+          <div class="cta-row">
+            <button type="submit" class="btn btn-primary">Notify me when checkout is live</button>
+            <a class="btn btn-ghost" href="mailto:waitlist@example.com?subject=Agent%20Pack%20Store%20waitlist%20-%20ollama-local-agent-kit">Or use mailto</a>
+          </div>
+          <p class="hint" id="stub-msg" hidden></p>
+        </form>
+
+        <p style="margin-top:2rem;"><a href="index.html">← Back to product page</a></p>
+      </div>
+    </section>
+  </main>
+  <footer class="site">
+    <div class="wrap inner">
+      <span>Stub checkout · Agent Pack Store</span>
+      <span><a href="legal.html">Legal</a> · <a href="changelog.html">Changelog</a> · <a href="index.html">Landing</a></span>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("waitlist").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var email = document.getElementById("email").value.trim();
+      var msg = document.getElementById("stub-msg");
+      msg.hidden = false;
+      msg.textContent = email
+        ? "Stub only: recorded locally in this page — not sent to a server. Email noted: " + email
+        : "Stub only: no email entered. No charge. Checkout coming later.";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "store": "Agent Pack Store",
+  "updated": "2026-09-16",
+  "kits": [
+    {
+      "sku": "ollama-local-agent-kit",
+      "title": "Ollama Local Agent Kit",
+      "price_cents": 7900,
+      "currency": "USD",
+      "status": "stub_checkout",
+      "path": "kits/ollama-local-agent-kit",
+      "version": "0.1.0",
+      "audience": "engineers who want a reproducible local LLM agent setup (offline/local Ollama only)",
+      "package": "dist/ollama-local-agent-kit-v0.1.0.zip"
+    }
+  ]
+}

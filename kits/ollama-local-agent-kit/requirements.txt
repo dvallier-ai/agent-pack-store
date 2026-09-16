@@ -1,0 +1,3 @@
+# Minimal pins for Ollama Local Agent Kit v0.1.0
+# Uses stdlib urllib by default; requests is optional convenience.
+requests>=2.31.0,<3.0.0

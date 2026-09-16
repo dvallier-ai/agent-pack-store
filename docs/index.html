@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ollama Local Agent Kit — Agent Pack Store</title>
+  <meta name="description" content="Reproducible local LLM agent kit for engineers: install scripts, Python agent, eval harness. Offline Ollama only. $79." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site">
+    <div class="wrap inner">
+      <a class="logo" href="index.html">Agent Pack Store</a>
+      <nav>
+        <a href="#included">Included</a>
+        <a href="#audience">Audience</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="checkout-stub.html">Get kit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="wrap">
+        <div class="badge-row">
+          <span class="badge">SKU #1</span>
+          <span class="badge">v0.1.0</span>
+          <span class="badge price">$79</span>
+          <span class="badge warn">Checkout stub</span>
+        </div>
+        <h1>Ollama Local Agent Kit</h1>
+        <p class="lede">
+          A shippable, offline-first agent setup for engineers: real install scripts,
+          a Python agent talking to Ollama’s HTTP API, and an eval harness with fixtures.
+          Not a prompt PDF pack.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="checkout-stub.html">Get the kit — $79</a>
+          <a class="btn btn-ghost" href="changelog.html">View changelog</a>
+        </div>
+      </div>
+    </div>
+
+    <section id="included">
+      <div class="wrap">
+        <h2>What’s included</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>install.sh</h3>
+            <p>Checks curl/Ollama, documents install if missing, optional venv, pulls a small default model.</p>
+          </div>
+          <div class="card">
+            <h3>Python agent</h3>
+            <p>Single-shot CLI and chat loop against <code>localhost:11434</code>, plus a simple tool stub.</p>
+          </div>
+          <div class="card">
+            <h3>Eval harness</h3>
+            <p>Fixture prompts with pass/fail heuristics; writes <code>report.json</code> and <code>report.md</code>.</p>
+          </div>
+          <div class="card">
+            <h3>Docs &amp; scripts</h3>
+            <p>Smoke test, model pull, architecture, troubleshooting, and how to swap models.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="audience">
+      <div class="wrap">
+        <h2>Who it’s for</h2>
+        <ul>
+          <li>Engineers who want a <strong>reproducible local LLM agent</strong> without cloud APIs.</li>
+          <li>Teams prototyping agents that must run offline or on-laptop via Ollama.</li>
+          <li>Builders who need an eval loop (fixtures + latency/keyword checks) from day one.</li>
+        </ul>
+        <p>Requires macOS/Linux, Python 3.10+, and Ollama. No API keys for the default path.</p>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="wrap">
+        <h2>Pricing</h2>
+        <div class="price-block">
+          <div>
+            <div class="amount">$79 <span>one-time · digital goods</span></div>
+            <p style="margin:0.4rem 0 0;">MIT-licensed kit source. Checkout is currently a stub — no charges yet.</p>
+          </div>
+          <a class="btn btn-primary" href="checkout-stub.html">Continue to stub checkout</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="faq">
+      <div class="wrap">
+        <h2>FAQ</h2>
+        <details>
+          <summary>Is this cloud inference?</summary>
+          <p>No. The kit targets local Ollama only (<code>http://127.0.0.1:11434</code>). Cloud endpoints are out of scope for v0.1.0.</p>
+        </details>
+        <details>
+          <summary>Do I need an API key?</summary>
+          <p>Not for the default local setup. Configuration uses host/model/system prompt only — see <code>.env.example</code>.</p>
+        </details>
+        <details>
+          <summary>Can I pay right now?</summary>
+          <p>Not yet. The checkout page is a labeled stub; Lemon (or similar) checkout is coming later. You can leave an optional waitlist email (client-side / mailto only).</p>
+        </details>
+        <details>
+          <summary>What model does it use?</summary>
+          <p>Default is <code>llama3.2:1b</code> (or similar small model). Swap via <code>OLLAMA_MODEL</code> — see kit docs.</p>
+        </details>
+        <details>
+          <summary>License?</summary>
+          <p>MIT. See the kit <code>LICENSE</code> file. Site legal notes: <a href="legal.html">legal.html</a>.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap inner">
+      <span>Agent Pack Store · SKU <code>ollama-local-agent-kit</code></span>
+      <span>
+        <a href="legal.html">Legal</a> ·
+        <a href="changelog.html">Changelog</a> ·
+        <a href="checkout-stub.html">Checkout stub</a>
+      </span>
+    </div>
+  </footer>
+</body>
+</html>

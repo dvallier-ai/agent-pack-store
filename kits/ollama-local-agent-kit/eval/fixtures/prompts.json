@@ -1,0 +1,26 @@
+[
+  {
+    "id": "identity",
+    "prompt": "Reply with exactly one short sentence explaining what a local LLM is.",
+    "expect_keyword": "local",
+    "max_latency_sec": 30
+  },
+  {
+    "id": "python-hello",
+    "prompt": "Write a one-line Python hello world. Reply with only the code line.",
+    "expect_keyword": "print",
+    "max_latency_sec": 30
+  },
+  {
+    "id": "latency-smoke",
+    "prompt": "Say the word ok.",
+    "expect_keyword": "ok",
+    "max_latency_sec": 45
+  },
+  {
+    "id": "nonempty-only",
+    "prompt": "Name one benefit of running models offline.",
+    "expect_keyword": null,
+    "max_latency_sec": 30
+  }
+]
