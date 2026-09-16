@@ -7,11 +7,12 @@
       "title": "Ollama Local Agent Kit",
       "price_cents": 7900,
       "currency": "USD",
-      "status": "stub_checkout",
+      "status": "lemon_test",
       "path": "kits/ollama-local-agent-kit",
       "version": "0.1.0",
       "audience": "engineers who want a reproducible local LLM agent setup (offline/local Ollama only)",
-      "package": "dist/ollama-local-agent-kit-v0.1.0.zip"
+      "package": "dist/ollama-local-agent-kit-v0.1.0.zip",
+      "checkout_url": "https://twisted-relic.lemonsqueezy.com/checkout/buy/e84cbcae-1f17-418c-a309-83f6d7e7542e"
     }
   ]
 }

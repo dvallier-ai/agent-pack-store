@@ -10,7 +10,7 @@ Production MVP for curated, installable agent kits. Working name: **Agent Pack S
 | Title | Ollama Local Agent Kit |
 | Price | $79 |
 | Version | 0.1.0 |
-| Checkout | Stub (no real payments) |
+| Checkout | Lemon test mode — https://twisted-relic.lemonsqueezy.com/checkout/buy/e84cbcae-1f17-418c-a309-83f6d7e7542e |
 
 A reproducible local LLM agent setup for engineers: install scripts, Python agent skeleton talking to Ollama’s HTTP API, and an eval harness. Offline / local Ollama only.
 
@@ -51,7 +51,7 @@ bash scripts/package-kit.sh
 
 Open `site/index.html` in a browser (file:// or any static host). Internal links use relative paths only.
 
-Checkout is a **stub** — no payment processing. See `site/checkout-stub.html`.
+Checkout is **Lemon Squeezy (Twisted Relic) in test mode** until Activate Store. Buy link: https://twisted-relic.lemonsqueezy.com/checkout/buy/e84cbcae-1f17-418c-a309-83f6d7e7542e
 
 ## Publish
 
