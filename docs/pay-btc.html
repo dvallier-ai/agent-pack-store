@@ -40,7 +40,7 @@
         <p class="hint">Native SegWit (bc1…). Send on Bitcoin mainnet only.</p>
         <h3>2. Email proof</h3>
         <p>Email <strong>txid + the address you used to send from</strong> to:
-          <a id="email-link" href="mailto:ai.assistant.nova.2026@gmail.com?subject=Ollama%20Local%20Agent%20Kit%20BTC%20order">ai.assistant.nova.2026@gmail.com</a>
+          <a id="email-link" href="mailto:dvallier@gmail.com?subject=Ollama%20Local%20Agent%20Kit%20BTC%20order">dvallier@gmail.com</a>
         </p>
         <h3>3. Get the zip</h3>
         <p>We verify on-chain (1+ confirmation) and reply with the <code id="zip-name">ollama-local-agent-kit-v0.1.0.zip</code> download link. Usually same day PT.</p>
@@ -83,7 +83,7 @@
       productDescription.textContent = product.description;
       amount.textContent = product.price + " USD in BTC";
       zipName.textContent = product.zip;
-      emailLink.href = "mailto:ai.assistant.nova.2026@gmail.com?subject=" + encodeURIComponent(product.name + " BTC order");
+      emailLink.href = "mailto:dvallier@gmail.com?subject=" + encodeURIComponent(product.name + " BTC order");
       if (updateUrl) {
         const url = new URL(window.location.href);
         url.searchParams.set("sku", activeSku);
