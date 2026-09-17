@@ -1,0 +1,3 @@
+{{business_name}}: {{tech_name}} is heading your way in about 2 hours for your {{appointment_time}} visit ({{job_type}}). Need to change it? Call/text {{phone}}.
+
+Reply STOP to opt out.

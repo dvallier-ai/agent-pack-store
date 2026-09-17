@@ -1,0 +1,276 @@
+{
+  "name": "Local Biz \u2014 Booking \u2192 Reminder Schedule",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual-a",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "local-biz-booking",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "webhook-a",
+      "name": "Booking Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        80
+      ],
+      "webhookId": "local-biz-booking-stub"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1",
+              "name": "customer_name",
+              "value": "={{ $json.name || $json.body.name || 'Sample Customer' }}",
+              "type": "string"
+            },
+            {
+              "id": "2",
+              "name": "phone",
+              "value": "={{ $json.phone || $json.body.phone || '+15555550100' }}",
+              "type": "string"
+            },
+            {
+              "id": "3",
+              "name": "service",
+              "value": "={{ $json.service || $json.body.service || 'Rekey' }}",
+              "type": "string"
+            },
+            {
+              "id": "4",
+              "name": "preferred_time",
+              "value": "={{ $json.preferred_time || $json.body.preferred_time || 'Thu 4:30pm' }}",
+              "type": "string"
+            },
+            {
+              "id": "5",
+              "name": "notes",
+              "value": "={{ $json.notes || $json.body.notes || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "6",
+              "name": "business_name",
+              "value": "YOUR BUSINESS NAME",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "set-a",
+      "name": "Normalize Booking Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        280,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Reminder placeholders\n\n1. Replace Wait durations with real schedule math from preferred_time.\n2. Add SMS/Email nodes after each Wait (Twilio optional \u2014 not required to import).\n3. Copy copy from `sms-templates/appointment-reminder-24h.txt` and `...-2h.txt`.",
+        "height": 280,
+        "width": 360
+      },
+      "id": "note-a",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        520,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 1,
+        "unit": "minutes"
+      },
+      "id": "wait-24h",
+      "name": "Wait Stub (stand-in for 24h)",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        560,
+        120
+      ],
+      "webhookId": "wait-24h-stub"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1",
+              "name": "sms_template",
+              "value": "24h reminder \u2014 paste sms-templates/appointment-reminder-24h.txt here",
+              "type": "string"
+            },
+            {
+              "id": "2",
+              "name": "to",
+              "value": "={{ $json.phone }}",
+              "type": "string"
+            },
+            {
+              "id": "3",
+              "name": "status",
+              "value": "PLACEHOLDER \u2014 no SMS sent",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "set-24h",
+      "name": "Reminder 24h Placeholder",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        800,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 1,
+        "unit": "minutes"
+      },
+      "id": "wait-2h",
+      "name": "Wait Stub (stand-in for 2h)",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        560,
+        320
+      ],
+      "webhookId": "wait-2h-stub"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1",
+              "name": "sms_template",
+              "value": "2h reminder \u2014 paste sms-templates/appointment-reminder-2h.txt here",
+              "type": "string"
+            },
+            {
+              "id": "2",
+              "name": "to",
+              "value": "={{ $json.phone }}",
+              "type": "string"
+            },
+            {
+              "id": "3",
+              "name": "status",
+              "value": "PLACEHOLDER \u2014 no SMS sent",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "set-2h",
+      "name": "Reminder 2h Placeholder",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        800,
+        320
+      ]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Normalize Booking Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Booking Webhook": {
+      "main": [
+        [
+          {
+            "node": "Normalize Booking Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Booking Fields": {
+      "main": [
+        [
+          {
+            "node": "Wait Stub (stand-in for 24h)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Wait Stub (stand-in for 2h)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait Stub (stand-in for 24h)": {
+      "main": [
+        [
+          {
+            "node": "Reminder 24h Placeholder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait Stub (stand-in for 2h)": {
+      "main": [
+        [
+          {
+            "node": "Reminder 2h Placeholder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "local-biz-ops-kit-0.1.0",
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
+  "tags": [
+    {
+      "name": "local-biz-ops-kit"
+    }
+  ]
+}

@@ -27,6 +27,26 @@
       "version": "0.1.0",
       "audience": "local-LLM users who want structured model, tooling, VRAM, and notable-release signals",
       "package": "kits/local-llm-signal-drop/dist/local-llm-signal-drop-v0.1.0.zip"
+    },
+    {
+      "sku": "local-biz-ops-kit",
+      "title": "Local Biz Ops Kit",
+      "price_cents": 19900,
+      "currency": "USD",
+      "price_shelf": "$149\u2013$299",
+      "status": "mvp",
+      "listing": "warm_trial",
+      "path": "kits/local-biz-ops-kit",
+      "version": "0.1.0",
+      "audience": "small home-services (locksmith, plumber, HVAC-class) \u2014 warm buyers first",
+      "package": "kits/local-biz-ops-kit/dist/local-biz-ops-kit-v0.1.0.zip",
+      "includes": [
+        "static booking page",
+        "SMS templates",
+        "Google Business post drafts",
+        "n8n workflow stubs",
+        "optional scripts"
+      ]
     }
   ]
 }

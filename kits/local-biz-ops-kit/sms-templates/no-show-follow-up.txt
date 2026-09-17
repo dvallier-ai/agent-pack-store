@@ -1,0 +1,3 @@
+Hi {{customer_name}}, we missed you at the {{appointment_time}} window for {{job_type}}. No worries — reply with a better day/time or call {{phone}} and {{business_name}} will get you back on the schedule.
+
+Reply STOP to opt out.

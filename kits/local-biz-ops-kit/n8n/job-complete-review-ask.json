@@ -1,0 +1,204 @@
+{
+  "name": "Local Biz \u2014 Job Complete \u2192 Review Ask",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual-b",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "local-biz-job-complete",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "webhook-b",
+      "name": "Job Complete Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        80
+      ],
+      "webhookId": "local-biz-job-complete-stub"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1",
+              "name": "customer_name",
+              "value": "={{ $json.customer_name || $json.body.customer_name || 'Sample Customer' }}",
+              "type": "string"
+            },
+            {
+              "id": "2",
+              "name": "phone",
+              "value": "={{ $json.phone || $json.body.phone || '+15555550100' }}",
+              "type": "string"
+            },
+            {
+              "id": "3",
+              "name": "job_type",
+              "value": "={{ $json.job_type || $json.body.job_type || 'lock change' }}",
+              "type": "string"
+            },
+            {
+              "id": "4",
+              "name": "business_name",
+              "value": "YOUR BUSINESS NAME",
+              "type": "string"
+            },
+            {
+              "id": "5",
+              "name": "google_review_url",
+              "value": "https://g.page/r/YOUR_PLACE/review",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "set-b",
+      "name": "Normalize Job Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        280,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Review-ask delay\n\nDefault Wait is 1 minute for testing. Change to ~2\u201324 hours before real use.\nPaste `sms-templates/review-ask.txt` into your SMS node when you add one.\nNever auto-text purchased lead lists.",
+        "height": 240,
+        "width": 340
+      },
+      "id": "note-b",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        500,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 1,
+        "unit": "minutes"
+      },
+      "id": "wait-review",
+      "name": "Delay Before Review Ask",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        540,
+        180
+      ],
+      "webhookId": "wait-review-stub"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1",
+              "name": "message",
+              "value": "={{ 'Hi ' + $json.customer_name + ' \u2014 thanks for choosing ' + $json.business_name + ' for your ' + $json.job_type + '. If we earned it: ' + $json.google_review_url }}",
+              "type": "string"
+            },
+            {
+              "id": "2",
+              "name": "to",
+              "value": "={{ $json.phone }}",
+              "type": "string"
+            },
+            {
+              "id": "3",
+              "name": "status",
+              "value": "PLACEHOLDER \u2014 no SMS sent (add Twilio/HTTP later)",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "set-review",
+      "name": "Review Ask Placeholder",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        780,
+        180
+      ]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Normalize Job Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Job Complete Webhook": {
+      "main": [
+        [
+          {
+            "node": "Normalize Job Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Job Fields": {
+      "main": [
+        [
+          {
+            "node": "Delay Before Review Ask",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delay Before Review Ask": {
+      "main": [
+        [
+          {
+            "node": "Review Ask Placeholder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "local-biz-ops-kit-0.1.0",
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
+  "tags": [
+    {
+      "name": "local-biz-ops-kit"
+    }
+  ]
+}

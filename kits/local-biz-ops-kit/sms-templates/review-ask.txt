@@ -1,0 +1,3 @@
+Hi {{customer_name}} — thanks for choosing {{business_name}} for your {{job_type}} today. If we earned it, a quick Google review helps neighbors find us: {{google_review_url}}
+
+Reply STOP to opt out of texts from us.

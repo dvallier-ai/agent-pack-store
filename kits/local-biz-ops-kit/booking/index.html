@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Request a Visit — Your Business Name</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <p class="eyebrow">Locksmith &amp; home services</p>
+      <h1>Request a visit</h1>
+      <p class="lede">
+        Tell us what you need and when works. We confirm by phone or text —
+        this is a <strong>request</strong>, not an instant booking.
+      </p>
+    </header>
+
+    <!-- WIRE YOUR ENDPOINT: replace action="#" with Formspree, n8n webhook, or your form backend.
+         Free path: leave as-is and use the on-page "copy summary" fallback, or host static and email yourself. -->
+    <aside class="wire-note" role="note">
+      <strong>Owner setup:</strong> Point this form at your endpoint.
+      Formspree example: <code>action="https://formspree.io/f/YOUR_ID"</code> method POST.
+      Or paste your n8n webhook URL. Until then, submissions stay on this page (see fallback below).
+      No paid SaaS is required to trial the page.
+    </aside>
+
+    <form id="booking-form" class="card" action="#" method="post">
+      <label>
+        Name <span class="req">*</span>
+        <input type="text" name="name" id="name" required autocomplete="name" placeholder="Jordan Lee" />
+      </label>
+
+      <label>
+        Phone <span class="req">*</span>
+        <input type="tel" name="phone" id="phone" required autocomplete="tel" placeholder="(555) 555-0123" />
+      </label>
+
+      <label>
+        Service <span class="req">*</span>
+        <select name="service" id="service" required>
+          <option value="">Select…</option>
+          <option>Lockout (home / auto)</option>
+          <option>Lock change / rekey</option>
+          <option>Key copy / duplicate</option>
+          <option>Deadbolt / hardware install</option>
+          <option>Emergency after-hours</option>
+          <option>Other home service</option>
+        </select>
+      </label>
+
+      <label>
+        Preferred time <span class="req">*</span>
+        <input type="text" name="preferred_time" id="preferred_time" required
+               placeholder="Thu after 4pm, or ASAP" />
+      </label>
+
+      <label>
+        Notes
+        <textarea name="notes" id="notes" rows="4" placeholder="Gate code, make/model, apartment #…"></textarea>
+      </label>
+
+      <button type="submit" class="btn">Send request</button>
+      <p class="fine">By submitting you agree we may contact you about this request. No marketing blasts.</p>
+    </form>
+
+    <section id="fallback" class="card fallback hidden" aria-live="polite">
+      <h2>Request captured locally</h2>
+      <p>Endpoint not wired yet. Copy this summary and text/email it to your shop line:</p>
+      <pre id="summary"></pre>
+      <button type="button" class="btn secondary" id="copy-btn">Copy summary</button>
+    </section>
+
+    <footer class="foot">
+      <p>Replace “Your Business Name” in the title. Powered by Local Biz Ops Kit v0.1.0.</p>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

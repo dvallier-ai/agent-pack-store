@@ -14,6 +14,27 @@ Production MVP for curated, installable agent kits. Working name: **Agent Pack S
 
 A reproducible local LLM agent setup for engineers: install scripts, Python agent skeleton talking to Ollama’s HTTP API, and an eval harness. Offline / local Ollama only.
 
+## SKU — Local Biz Ops Kit
+
+| Field | Value |
+|-------|-------|
+| Id | `local-biz-ops-kit` |
+| Title | Local Biz Ops Kit |
+| Price | $199 catalog (shelf $149–$299) |
+| Version | 0.1.0 |
+| Path | `kits/local-biz-ops-kit/` |
+
+Agent-built ops pack for locksmith / home-services: booking request page, SMS templates, GBP post drafts, n8n stubs. Warm-buyer first; no cold spam tooling.
+
+```bash
+cd kits/local-biz-ops-kit
+# preview booking page
+cd booking && python3 -m http.server 8080
+# package
+bash scripts/package.sh
+# → dist/local-biz-ops-kit-v0.1.0.zip
+```
+
 ## Layout
 
 ```
@@ -21,7 +42,9 @@ agent-pack-store/
   README.md
   CHANGELOG.md
   catalog.json
-  kits/ollama-local-agent-kit/   # the shippable kit
+  kits/ollama-local-agent-kit/
+  kits/local-biz-ops-kit/       # home-services ops pack
+  kits/local-llm-signal-drop/
   site/                          # static product landing
   scripts/package-kit.sh         # zip kit into dist/
   dist/                          # packaged zip(s)

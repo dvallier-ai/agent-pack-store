@@ -1,0 +1,3 @@
+Hi {{customer_name}}, reminder from {{business_name}}: we are scheduled for {{appointment_time}} at {{address_or_area}}. Reply YES to confirm or call {{phone}} to reschedule.
+
+Reply STOP to opt out.
