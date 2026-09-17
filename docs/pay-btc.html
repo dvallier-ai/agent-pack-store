@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pay with BTC — Ollama Local Agent Kit</title>
+  <title>Pay with BTC — Agent Pack Store</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -20,28 +20,80 @@
   <main>
     <div class="wrap" style="padding:2.5rem 1rem; max-width:42rem;">
       <div class="badge-row">
-        <span class="badge price">9</span>
+        <span class="badge price" id="price-badge">$79</span>
         <span class="badge">BTC</span>
         <span class="badge warn">Manual fulfill</span>
       </div>
       <h1>Pay with Bitcoin</h1>
-      <p class="lede">Lemon Squeezy card checkout is not live yet. You can buy the kit now by sending <strong>$79 USD equivalent in BTC</strong> and emailing us the txid.</p>
+      <p class="lede">Choose a kit, send the USD equivalent in BTC, and email us the transaction proof. Both kits use the same fulfillment rail.</p>
       <div class="card" style="margin:1.5rem 0; padding:1.25rem;">
-        <h3 style="margin-top:0;">1. Send BTC</h3>
-        <p>Send <strong>$79 USD in BTC</strong> (at send-time spot) to:</p>
+        <label for="sku-select"><strong>Kit</strong></label>
+        <select id="sku-select" style="display:block; width:100%; margin:0.5rem 0 1.25rem; padding:0.65rem; font:inherit;">
+          <option value="ollama-local-agent-kit">Ollama Local Agent Kit — $79</option>
+          <option value="local-biz-ops-kit">Local Biz Ops Kit — $199</option>
+        </select>
+        <h2 id="product-name" style="margin-top:0;">Ollama Local Agent Kit</h2>
+        <p id="product-description">A reproducible local LLM agent setup for engineers.</p>
+        <h3>1. Send BTC</h3>
+        <p>Send <strong id="amount">$79 USD in BTC</strong> (at send-time spot) to:</p>
         <p><code style="word-break:break-all; font-size:0.95rem;">bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg</code></p>
         <p class="hint">Native SegWit (bc1…). Send on Bitcoin mainnet only.</p>
         <h3>2. Email proof</h3>
         <p>Email <strong>txid + the address you used to send from</strong> to:
-          <a href="mailto:ai.assistant.nova.2026@gmail.com?subject=Ollama%20Local%20Agent%20Kit%20BTC%20order">ai.assistant.nova.2026@gmail.com</a>
+          <a id="email-link" href="mailto:ai.assistant.nova.2026@gmail.com?subject=Ollama%20Local%20Agent%20Kit%20BTC%20order">ai.assistant.nova.2026@gmail.com</a>
         </p>
         <h3>3. Get the zip</h3>
-        <p>We verify on-chain (1+ confirmation) and reply with the <code>ollama-local-agent-kit-v0.1.0.zip</code> download link. Usually same day PT.</p>
+        <p>We verify on-chain (1+ confirmation) and reply with the <code id="zip-name">ollama-local-agent-kit-v0.1.0.zip</code> download link. Usually same day PT.</p>
       </div>
       <p><a class="btn btn-ghost" href="index.html">← Back to kit</a>
          <a class="btn btn-primary" href="https://mempool.space/address/bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg" target="_blank" rel="noopener">Watch address</a></p>
       <p class="hint">MIT kit · No subscription · Not financial advice. Card/Lemon path returns when the store is activated.</p>
     </div>
   </main>
+  <script>
+    const products = {
+      "ollama-local-agent-kit": {
+        name: "Ollama Local Agent Kit",
+        price: "$79",
+        description: "A reproducible local LLM agent setup for engineers.",
+        zip: "ollama-local-agent-kit-v0.1.0.zip"
+      },
+      "local-biz-ops-kit": {
+        name: "Local Biz Ops Kit",
+        price: "$199",
+        description: "A ready ops pack for small home-services shops: booking, SMS, Google Business drafts, and n8n stubs.",
+        zip: "local-biz-ops-kit-v0.1.0.zip"
+      }
+    };
+    const defaultSku = "ollama-local-agent-kit";
+    const select = document.getElementById("sku-select");
+    const priceBadge = document.getElementById("price-badge");
+    const productName = document.getElementById("product-name");
+    const productDescription = document.getElementById("product-description");
+    const amount = document.getElementById("amount");
+    const emailLink = document.getElementById("email-link");
+    const zipName = document.getElementById("zip-name");
+
+    function showProduct(sku, updateUrl) {
+      const product = products[sku] || products[defaultSku];
+      const activeSku = products[sku] ? sku : defaultSku;
+      select.value = activeSku;
+      priceBadge.textContent = product.price;
+      productName.textContent = product.name;
+      productDescription.textContent = product.description;
+      amount.textContent = product.price + " USD in BTC";
+      zipName.textContent = product.zip;
+      emailLink.href = "mailto:ai.assistant.nova.2026@gmail.com?subject=" + encodeURIComponent(product.name + " BTC order");
+      if (updateUrl) {
+        const url = new URL(window.location.href);
+        url.searchParams.set("sku", activeSku);
+        window.history.replaceState({}, "", url);
+      }
+    }
+
+    const requestedSku = new URLSearchParams(window.location.search).get("sku");
+    showProduct(requestedSku, false);
+    select.addEventListener("change", () => showProduct(select.value, true));
+  </script>
 </body>
 </html>

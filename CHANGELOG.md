@@ -5,6 +5,7 @@
 ### Added
 - SKU: `local-biz-ops-kit` v0.1.0 — Local Biz Ops Kit (booking page, SMS templates, GBP drafts, n8n stubs).
 - Catalog entry: $199 (shelf $149–$299), warm-trial positioning.
+- Added shared BTC checkout for both kits; Biz Ops is available at $199 with manual fulfillment.
 
 ## 0.1.0 — 2026-09-16
 
