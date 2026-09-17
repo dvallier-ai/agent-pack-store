@@ -13,6 +13,18 @@
       "audience": "engineers who want a reproducible local LLM agent setup (offline/local Ollama only)",
       "package": "dist/ollama-local-agent-kit-v0.1.0.zip",
       "checkout_url": "https://twisted-relic.lemonsqueezy.com/checkout/buy/e84cbcae-1f17-418c-a309-83f6d7e7542e"
+    },
+    {
+      "sku": "local-llm-signal-drop",
+      "title": "Local-LLM Signal Drop",
+      "price_cents": 1900,
+      "currency": "USD",
+      "status": "coming_soon",
+      "listing": "draft",
+      "path": "kits/local-llm-signal-drop",
+      "version": "0.1.0",
+      "audience": "local-LLM users who want structured model, tooling, VRAM, and notable-release signals",
+      "package": "kits/local-llm-signal-drop/dist/local-llm-signal-drop-v0.1.0.zip"
     }
   ]
 }
