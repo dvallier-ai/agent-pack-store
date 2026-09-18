@@ -25,12 +25,13 @@
         <span class="badge warn">Manual fulfill</span>
       </div>
       <h1>Pay with Bitcoin</h1>
-      <p class="lede">Choose a kit, send the USD equivalent in BTC, and email us the transaction proof. Both kits use the same fulfillment rail.</p>
+      <p class="lede">Choose a kit, send the USD equivalent in BTC, and email us the transaction proof. All listed kits use the same fulfillment rail.</p>
       <div class="card" style="margin:1.5rem 0; padding:1.25rem;">
         <label for="sku-select"><strong>Kit</strong></label>
         <select id="sku-select" style="display:block; width:100%; margin:0.5rem 0 1.25rem; padding:0.65rem; font:inherit;">
           <option value="ollama-local-agent-kit">Ollama Local Agent Kit — $79</option>
           <option value="local-biz-ops-kit">Local Biz Ops Kit — $199</option>
+          <option value="polymarket-research-pack">Polymarket Research Pack — $19</option>
         </select>
         <h2 id="product-name" style="margin-top:0;">Ollama Local Agent Kit</h2>
         <p id="product-description">A reproducible local LLM agent setup for engineers.</p>
@@ -47,7 +48,7 @@
       </div>
       <p><a class="btn btn-ghost" href="index.html">← Back to kit</a>
          <a class="btn btn-primary" href="https://mempool.space/address/bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg" target="_blank" rel="noopener">Watch address</a></p>
-      <p class="hint">MIT kit · No subscription · Not financial advice. Card/Lemon path returns when the store is activated.</p>
+      <p class="hint">MIT kits · No subscription · <strong>NOT financial advice. NOT a recommendation to bet.</strong> Research packs are education only. Card/Lemon path returns when the store is activated.</p>
     </div>
   </main>
   <script>
@@ -63,6 +64,12 @@
         price: "$199",
         description: "A ready ops pack for small home-services shops: booking, SMS, Google Business drafts, and n8n stubs.",
         zip: "local-biz-ops-kit-v0.1.0.zip"
+      },
+      "polymarket-research-pack": {
+        name: "Polymarket Research Pack",
+        price: "$19",
+        description: "Weekly-style research brief: top markets snapshot, odds deltas (EXAMPLE when live scrape unavailable), sources list. NOT financial advice. NOT a recommendation to bet.",
+        zip: "polymarket-research-pack-v0.1.0.zip"
       }
     };
     const defaultSku = "ollama-local-agent-kit";

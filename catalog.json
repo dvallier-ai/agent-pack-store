@@ -1,6 +1,6 @@
 {
   "store": "Agent Pack Store",
-  "updated": "2026-09-16",
+  "updated": "2026-09-18",
   "kits": [
     {
       "sku": "ollama-local-agent-kit",
@@ -49,6 +49,28 @@
         "n8n workflow stubs",
         "optional scripts"
       ]
+    },
+    {
+      "sku": "polymarket-research-pack",
+      "title": "Polymarket Research Pack",
+      "price_cents": 1900,
+      "currency": "USD",
+      "status": "btc_manual",
+      "listing": "research_brief",
+      "path": "kits/polymarket-research-pack",
+      "version": "0.1.0",
+      "audience": "readers who want structured prediction-market research briefs (education only \u2014 never betting advice)",
+      "package": "kits/polymarket-research-pack/dist/polymarket-research-pack-v0.1.0.zip",
+      "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
+      "btc_pay_page": "docs/pay-btc.html?sku=polymarket-research-pack",
+      "includes": [
+        "weekly-style research brief zip",
+        "top markets snapshot",
+        "odds deltas (EXAMPLE when live scrape unavailable)",
+        "sources list",
+        "DISCLOSURE.md on every pack"
+      ],
+      "disclaimer": "NOT financial advice. NOT a recommendation to bet. Research/education only."
     }
   ]
 }

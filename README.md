@@ -35,6 +35,26 @@ bash scripts/package.sh
 # → dist/local-biz-ops-kit-v0.1.0.zip
 ```
 
+
+## SKU — Polymarket Research Pack
+
+| Field | Value |
+|-------|-------|
+| Id | `polymarket-research-pack` |
+| Title | Polymarket Research Pack |
+| Price | $19 |
+| Version | 0.1.0 |
+| Path | `kits/polymarket-research-pack/` |
+| Pay | `docs/pay-btc.html?sku=polymarket-research-pack` |
+
+Weekly-style **research/brief** zip (top markets, odds deltas, sources). **NOT financial advice. NOT a recommendation to bet.** Education only. See kit `DISCLOSURE.md`.
+
+```bash
+cd kits/polymarket-research-pack
+bash scripts/build-pack.sh
+# → dist/polymarket-research-pack-v0.1.0.zip
+```
+
 ## Layout
 
 ```
@@ -45,6 +65,7 @@ agent-pack-store/
   kits/ollama-local-agent-kit/
   kits/local-biz-ops-kit/       # home-services ops pack
   kits/local-llm-signal-drop/
+  kits/polymarket-research-pack/ # $19 research brief (not betting advice)
   site/                          # static product landing
   scripts/package-kit.sh         # zip kit into dist/
   dist/                          # packaged zip(s)

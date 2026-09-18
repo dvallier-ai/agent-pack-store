@@ -1,5 +1,14 @@
 # Changelog — Agent Pack Store
 
+## 0.3.0 — 2026-09-18
+
+### Added
+- SKU: `polymarket-research-pack` v0.1.0 — Polymarket Research Pack ($19 research/brief zip).
+- Bold disclosure: NOT financial advice; NOT a recommendation to bet; research/education only.
+- BTC pay selector entry + index card → `pay-btc.html?sku=polymarket-research-pack`.
+- Sample issue `sample/2026-09-18-pack.md` with EXAMPLE-labeled numbers.
+- Free lead magnet on Pages: `checklist-pack-v0.1.zip` (Local-LLM Setup Checklist).
+
 ## 0.2.0 — 2026-09-16
 
 ### Added
