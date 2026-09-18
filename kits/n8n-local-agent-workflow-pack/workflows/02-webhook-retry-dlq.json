@@ -1,0 +1,185 @@
+{
+  "name": "Local Agent — Webhook Retry + Dead Letter",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "agent-event",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "wh-event",
+      "name": "Event Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 240],
+      "webhookId": "agent-event-stub"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1",
+              "name": "event_id",
+              "value": "={{ $json.body.id || $json.id || $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "2",
+              "name": "payload",
+              "value": "={{ $json.body || $json }}",
+              "type": "object"
+            },
+            {
+              "id": "3",
+              "name": "attempt",
+              "value": "={{ $json.body.attempt || 1 }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "set-event",
+      "name": "Normalize Event",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [220, 240]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict" },
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ $json.attempt }}",
+              "rightValue": 3,
+              "operator": { "type": "number", "operation": "lte" }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "if-retry",
+      "name": "Attempts ≤ 3?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [440, 240]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.DOWNSTREAM_URL || 'http://127.0.0.1:9999/echo' }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.payload }}",
+        "options": { "timeout": 15000 }
+      },
+      "id": "http-down",
+      "name": "Call Downstream",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [680, 120],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "amount": 30,
+        "unit": "seconds"
+      },
+      "id": "wait-retry",
+      "name": "Wait Backoff",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [900, 280]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1",
+              "name": "attempt",
+              "value": "={{ ($json.attempt || 1) + 1 }}",
+              "type": "number"
+            },
+            {
+              "id": "2",
+              "name": "event_id",
+              "value": "={{ $json.event_id }}",
+              "type": "string"
+            },
+            {
+              "id": "3",
+              "name": "payload",
+              "value": "={{ $json.payload }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bump-attempt",
+      "name": "Bump Attempt",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [1120, 280]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.DLQ_WEBHOOK || 'http://127.0.0.1:9999/dlq' }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"event_id\": \"{{ $json.event_id }}\",\n  \"attempts\": {{ $json.attempt }},\n  \"payload\": {{ JSON.stringify($json.payload) }},\n  \"reason\": \"max_retries_exceeded\"\n}",
+        "options": {}
+      },
+      "id": "http-dlq",
+      "name": "Dead Letter",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [680, 400]
+    },
+    {
+      "parameters": {},
+      "id": "manual-reprocess",
+      "name": "Manual Reprocess (attach Error Workflow)",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 480]
+    }
+  ],
+  "connections": {
+    "Event Webhook": {
+      "main": [[{ "node": "Normalize Event", "type": "main", "index": 0 }]]
+    },
+    "Normalize Event": {
+      "main": [[{ "node": "Attempts ≤ 3?", "type": "main", "index": 0 }]]
+    },
+    "Attempts ≤ 3?": {
+      "main": [
+        [{ "node": "Call Downstream", "type": "main", "index": 0 }],
+        [{ "node": "Dead Letter", "type": "main", "index": 0 }]
+      ]
+    },
+    "Call Downstream": {
+      "main": [
+        [],
+        [{ "node": "Wait Backoff", "type": "main", "index": 0 }]
+      ]
+    },
+    "Wait Backoff": {
+      "main": [[{ "node": "Bump Attempt", "type": "main", "index": 0 }]]
+    },
+    "Bump Attempt": {
+      "main": [[{ "node": "Attempts ≤ 3?", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": { "executionOrder": "v1" },
+  "meta": {
+    "description": "Stub inspired by webhook→retry→DLQ hardening: classify failures, backoff, dead-letter after 3 attempts. Wire Error Workflow + real DLQ sheet/SMS in production."
+  }
+}

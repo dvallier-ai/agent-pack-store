@@ -88,6 +88,29 @@ Before→after Zapier/Make/n8n gig templates. Templates/education only.
 - **Fulfill:** dvallier@gmail.com
 - Page: `docs/pay-btc.html` (also under `site/`)
 
+
+## SKU — n8n Local Agent Workflow Pack
+
+| Field | Value |
+|-------|-------|
+| Id | `n8n-local-agent-workflow-pack` |
+| Price | $39 |
+| Path | `kits/n8n-local-agent-workflow-pack/` |
+| Pay | `docs/pay-btc.html?sku=n8n-local-agent-workflow-pack` |
+
+Importable n8n workflow JSON stubs (Ollama chat, retry+DLQ, scheduled digest).
+
+## SKU — Link / ASIN Health Kit
+
+| Field | Value |
+|-------|-------|
+| Id | `link-asin-health-kit` |
+| Price | $29 |
+| Path | `kits/link-asin-health-kit/` |
+| Pay | `docs/pay-btc.html?sku=link-asin-health-kit` |
+
+CSV CLI for dead/broken tagged links & ASINs. No Creators API required.
+
 ## Layout
 
 ```
@@ -99,6 +122,8 @@ agent-pack-store/
   kits/local-biz-ops-kit/       # home-services ops pack
   kits/local-llm-signal-drop/
   kits/polymarket-research-pack/ # $19 research brief (not betting advice)
+  kits/n8n-local-agent-workflow-pack/ # $39 n8n×Ollama stubs
+  kits/link-asin-health-kit/     # $29 link/ASIN health CLI
   kits/competitor-teardown-pack/ # $49 teardown
   kits/automation-gig-templates-pack/ # $29 gig templates
   site/                          # static product landing

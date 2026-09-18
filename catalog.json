@@ -108,6 +108,47 @@
       "disclaimer": "NOT investment advice. Public sources + judgment overlay only."
     },
     {
+      "sku": "n8n-local-agent-workflow-pack",
+      "title": "n8n Local Agent Workflow Pack",
+      "price_cents": 3900,
+      "currency": "USD",
+      "status": "btc_eth_manual",
+      "listing": "ready",
+      "path": "kits/n8n-local-agent-workflow-pack",
+      "version": "0.1.0",
+      "audience": "builders wiring local Ollama agents through self-hosted n8n webhooks",
+      "package": "kits/n8n-local-agent-workflow-pack/dist/n8n-local-agent-workflow-pack-v0.1.0.zip",
+      "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
+      "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
+      "btc_pay_page": "docs/pay-btc.html?sku=n8n-local-agent-workflow-pack",
+      "includes": [
+        "webhook → Ollama chat workflow JSON",
+        "webhook retry + dead-letter stub",
+        "scheduled Ollama digest stub",
+        "import/run docs"
+      ]
+    },
+    {
+      "sku": "link-asin-health-kit",
+      "title": "Link / ASIN Health Kit",
+      "price_cents": 2900,
+      "currency": "USD",
+      "status": "btc_eth_manual",
+      "listing": "ready",
+      "path": "kits/link-asin-health-kit",
+      "version": "0.1.0",
+      "audience": "operators watching tagged affiliate/product links for dead URLs without Creators API",
+      "package": "kits/link-asin-health-kit/dist/link-asin-health-kit-v0.1.0.zip",
+      "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
+      "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
+      "btc_pay_page": "docs/pay-btc.html?sku=link-asin-health-kit",
+      "includes": [
+        "check_links.py CSV CLI",
+        "sample links.csv",
+        "optional price-hint mode"
+      ]
+    },
+    {
       "sku": "automation-gig-templates-pack",
       "title": "Automation Gig Templates Pack",
       "price_cents": 2900,

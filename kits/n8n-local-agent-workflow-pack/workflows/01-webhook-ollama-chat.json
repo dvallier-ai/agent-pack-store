@@ -1,0 +1,96 @@
+{
+  "name": "Local Agent — Webhook → Ollama Chat",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "local-agent-chat",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "wh-chat",
+      "name": "Chat Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 200],
+      "webhookId": "local-agent-chat-stub"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1",
+              "name": "prompt",
+              "value": "={{ $json.body.prompt || $json.prompt || 'Say hello in one sentence.' }}",
+              "type": "string"
+            },
+            {
+              "id": "2",
+              "name": "model",
+              "value": "={{ $json.body.model || $json.model || 'llama3.2:1b' }}",
+              "type": "string"
+            },
+            {
+              "id": "3",
+              "name": "ollama_host",
+              "value": "={{ $json.body.ollama_host || 'http://127.0.0.1:11434' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "set-chat",
+      "name": "Normalize Prompt",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [240, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $json.ollama_host }}/api/generate",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"{{ $json.model }}\",\n  \"prompt\": \"{{ $json.prompt }}\",\n  \"stream\": false\n}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "http-ollama",
+      "name": "Ollama Generate",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [480, 200]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { ok: true, model: $('Normalize Prompt').item.json.model, response: $json.response || $json.message || $json } }}",
+        "options": {}
+      },
+      "id": "resp-chat",
+      "name": "Respond JSON",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [720, 200]
+    }
+  ],
+  "connections": {
+    "Chat Webhook": {
+      "main": [[{ "node": "Normalize Prompt", "type": "main", "index": 0 }]]
+    },
+    "Normalize Prompt": {
+      "main": [[{ "node": "Ollama Generate", "type": "main", "index": 0 }]]
+    },
+    "Ollama Generate": {
+      "main": [[{ "node": "Respond JSON", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": { "executionOrder": "v1" },
+  "meta": {
+    "templateCredsSetupCompleted": false,
+    "description": "Stub: POST /webhook/local-agent-chat → local Ollama /api/generate. Import into n8n, ensure Ollama is running."
+  }
+}

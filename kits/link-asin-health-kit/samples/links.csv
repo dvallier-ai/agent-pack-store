@@ -1,0 +1,5 @@
+label,url,asin,tag,notes,last_price
+Example product page,https://www.example.com/product/demo,B0EXAMPLE01,home-office,demo row — expect 200 or soft-block,19.99
+Dead host,https://this-host-should-not-resolve.invalid/item,B0DEAD0001,test,intentional dead DNS,
+Broken path,https://example.com/this-path-should-404,B0BROKEN02,test,intentional 404 check,9.99
+Amazon-style stub (no API),https://www.amazon.com/dp/B0EXAMPLE01,B0EXAMPLE01,aff-demo,HTTP status only — no Creators API,

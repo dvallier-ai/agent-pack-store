@@ -3,6 +3,14 @@
 ## 0.4.0 — 2026-09-18
 
 ### Added
+- SKU: `n8n-local-agent-workflow-pack` v0.1.0 — $39 (Ollama/webhook n8n JSON stubs + package zip).
+- SKU: `link-asin-health-kit` v0.1.0 — $29 (CSV link/ASIN health CLI; no Creators API).
+- Pay selector + catalog entries (BTC + ETH manual); index cards.
+- Skipped duplicate `indie-gig-proposal-pack` (overlaps Reed `automation-gig-templates-pack`).
+
+## 0.4.0 — 2026-09-18
+
+### Added
 - SKU: `competitor-teardown-pack` v0.1.0 — $49 (Activepieces sample + blank template).
 - SKU: `automation-gig-templates-pack` v0.1.0 — $29 (n8n retry/DLQ + Zapier lead-router samples).
 - Crypto catalog expansion: 10 SKUs in $9–$79 band (+ Biz Ops $199) documented in Passive Engine.

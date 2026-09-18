@@ -1,0 +1,88 @@
+{
+  "name": "Local Agent — Schedule Ollama Digest",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "hours", "hoursInterval": 24 }]
+        }
+      },
+      "id": "sched-daily",
+      "name": "Daily Schedule",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 200]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1",
+              "name": "digest_prompt",
+              "value": "Summarize today's local agent queue in 5 bullet points. If no context was provided, reply with a short stub digest template.",
+              "type": "string"
+            },
+            {
+              "id": "2",
+              "name": "model",
+              "value": "llama3.2:1b",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "set-digest",
+      "name": "Build Digest Prompt",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [240, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://127.0.0.1:11434/api/generate",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"{{ $json.model }}\",\n  \"prompt\": \"{{ $json.digest_prompt }}\",\n  \"stream\": false\n}",
+        "options": { "timeout": 120000 }
+      },
+      "id": "http-digest",
+      "name": "Ollama Digest",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [480, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.DIGEST_WEBHOOK || 'http://127.0.0.1:9999/digest' }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"generated_at\": \"{{ $now.toISO() }}\",\n  \"text\": {{ JSON.stringify($json.response || 'stub digest') }}\n}",
+        "options": {}
+      },
+      "id": "http-notify",
+      "name": "Post Digest",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [720, 200]
+    }
+  ],
+  "connections": {
+    "Daily Schedule": {
+      "main": [[{ "node": "Build Digest Prompt", "type": "main", "index": 0 }]]
+    },
+    "Build Digest Prompt": {
+      "main": [[{ "node": "Ollama Digest", "type": "main", "index": 0 }]]
+    },
+    "Ollama Digest": {
+      "main": [[{ "node": "Post Digest", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": { "executionOrder": "v1" },
+  "meta": {
+    "description": "Stub: daily schedule → Ollama summarize → POST digest webhook (Slack/email bridge of your choice)."
+  }
+}
