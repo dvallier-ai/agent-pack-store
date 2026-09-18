@@ -55,6 +55,39 @@ bash scripts/build-pack.sh
 # → dist/polymarket-research-pack-v0.1.0.zip
 ```
 
+## SKU — Competitor Teardown Pack
+
+| Field | Value |
+|-------|-------|
+| Id | `competitor-teardown-pack` |
+| Title | Competitor Teardown Pack |
+| Price | $49 |
+| Version | 0.1.0 |
+| Path | `kits/competitor-teardown-pack/` |
+| Pay | `docs/pay-btc.html?sku=competitor-teardown-pack` |
+
+Public-source competitor/market teardown (Activepieces sample + blank template). **NOT investment advice.**
+
+## SKU — Automation Gig Templates Pack
+
+| Field | Value |
+|-------|-------|
+| Id | `automation-gig-templates-pack` |
+| Title | Automation Gig Templates Pack |
+| Price | $29 |
+| Version | 0.1.0 |
+| Path | `kits/automation-gig-templates-pack/` |
+| Pay | `docs/pay-btc.html?sku=automation-gig-templates-pack` |
+
+Before→after Zapier/Make/n8n gig templates. Templates/education only.
+
+## Crypto payments
+
+- **BTC:** `bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg` (Bitcoin mainnet)
+- **ETH:** `0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8` (Ethereum mainnet native ETH)
+- **Fulfill:** dvallier@gmail.com
+- Page: `docs/pay-btc.html` (also under `site/`)
+
 ## Layout
 
 ```
@@ -66,6 +99,8 @@ agent-pack-store/
   kits/local-biz-ops-kit/       # home-services ops pack
   kits/local-llm-signal-drop/
   kits/polymarket-research-pack/ # $19 research brief (not betting advice)
+  kits/competitor-teardown-pack/ # $49 teardown
+  kits/automation-gig-templates-pack/ # $29 gig templates
   site/                          # static product landing
   scripts/package-kit.sh         # zip kit into dist/
   dist/                          # packaged zip(s)

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pay with BTC — Agent Pack Store</title>
+  <title>Pay with BTC / ETH — Agent Pack Store</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -13,7 +13,7 @@
       <nav>
         <a href="index.html">Kit</a>
         <a href="changelog.html">Changelog</a>
-        <a href="pay-btc.html">Pay with BTC</a>
+        <a href="pay-btc.html">Pay with BTC / ETH</a>
       </nav>
     </div>
   </header>
@@ -22,32 +22,73 @@
       <div class="badge-row">
         <span class="badge price" id="price-badge">$79</span>
         <span class="badge">BTC</span>
+        <span class="badge">ETH</span>
         <span class="badge warn">Manual fulfill</span>
       </div>
-      <h1>Pay with Bitcoin</h1>
-      <p class="lede">Choose a kit, send the USD equivalent in BTC, and email us the transaction proof. All listed kits use the same fulfillment rail.</p>
+      <h1>Pay with Bitcoin or Ethereum</h1>
+      <p class="lede">Choose a kit, send the USD equivalent in <strong>BTC</strong> or <strong>ETH (Ethereum mainnet)</strong>, and email us the transaction proof. Same fulfillment rail for every SKU.</p>
+
       <div class="card" style="margin:1.5rem 0; padding:1.25rem;">
-        <label for="sku-select"><strong>Kit</strong></label>
+        <label for="sku-select"><strong>Kit / pack</strong></label>
         <select id="sku-select" style="display:block; width:100%; margin:0.5rem 0 1.25rem; padding:0.65rem; font:inherit;">
           <option value="ollama-local-agent-kit">Ollama Local Agent Kit — $79</option>
           <option value="local-biz-ops-kit">Local Biz Ops Kit — $199</option>
+          <option value="competitor-teardown-pack">Competitor Teardown Pack — $49</option>
+          <option value="automation-gig-templates-pack">Automation Gig Templates Pack — $29</option>
+          <option value="local-llm-audit-template">Local LLM Async Audit Template — $29</option>
+          <option value="local-llm-signal-drop">Local-LLM Signal Drop — $19</option>
           <option value="polymarket-research-pack">Polymarket Research Pack — $19</option>
+          <option value="distribution-drafts-pack">Indie Distribution Drafts Pack — $19</option>
+          <option value="smb-review-scripts-pack">SMB Review-Ask Scripts Pack — $15</option>
+          <option value="local-llm-checklist-pack">Local LLM Checklist Pack — $9</option>
+          <option value="hn-reply-pack">Show HN / Launch Reply Pack — $9</option>
         </select>
         <h2 id="product-name" style="margin-top:0;">Ollama Local Agent Kit</h2>
         <p id="product-description">A reproducible local LLM agent setup for engineers.</p>
-        <h3>1. Send BTC</h3>
-        <p>Send <strong id="amount">$79 USD in BTC</strong> (at send-time spot) to:</p>
+
+        <h3>1a. Send BTC (Bitcoin mainnet)</h3>
+        <p>Send <strong id="amount-btc">$79 USD in BTC</strong> (at send-time spot) to:</p>
         <p><code style="word-break:break-all; font-size:0.95rem;">bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg</code></p>
-        <p class="hint">Native SegWit (bc1…). Send on Bitcoin mainnet only.</p>
+        <p class="hint">Native SegWit (bc1…). Bitcoin mainnet only — not Lightning, not wrapped BTC on other chains.</p>
+
+        <h3>1b. Or send ETH (Ethereum mainnet)</h3>
+        <p>Send <strong id="amount-eth">$79 USD in ETH</strong> (at send-time spot) to:</p>
+        <p><code style="word-break:break-all; font-size:0.95rem;">0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8</code></p>
+        <p class="hint">Native <strong>ETH on Ethereum mainnet</strong> only. Do <strong>not</strong> send ERC-20s, Polygon, Base, Arbitrum, or USDC unless we open a separate rail — mainnet ETH preferred for simplicity.</p>
+
         <h3>2. Email proof</h3>
-        <p>Email <strong>txid + the address you used to send from</strong> to:
-          <a id="email-link" href="mailto:dvallier@gmail.com?subject=Ollama%20Local%20Agent%20Kit%20BTC%20order">dvallier@gmail.com</a>
+        <p>Email <strong>txid + the address you used to send from + SKU</strong> to:
+          <a id="email-link" href="mailto:dvallier@gmail.com?subject=Ollama%20Local%20Agent%20Kit%20crypto%20order">dvallier@gmail.com</a>
         </p>
+        <p class="hint">Say whether you paid with BTC or ETH.</p>
+
         <h3>3. Get the zip</h3>
-        <p>We verify on-chain (1+ confirmation) and reply with the <code id="zip-name">ollama-local-agent-kit-v0.1.0.zip</code> download link. Usually same day PT.</p>
+        <p>We verify on-chain (BTC: 1+ confirmation; ETH: sufficient mainnet confirmations) and reply with the <code id="zip-name">ollama-local-agent-kit-v0.1.0.zip</code> download link. Usually same day PT.</p>
       </div>
-      <p><a class="btn btn-ghost" href="index.html">← Back to kit</a>
-         <a class="btn btn-primary" href="https://mempool.space/address/bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg" target="_blank" rel="noopener">Watch address</a></p>
+
+      <div class="card" style="margin:1.5rem 0; padding:1.25rem;">
+        <h2 style="margin-top:0; font-size:1.1rem;">Full catalog (crypto)</h2>
+        <ul style="margin:0; padding-left:1.2rem; line-height:1.7;" id="catalog-list">
+          <li>Ollama Local Agent Kit — $79</li>
+          <li>Local Biz Ops Kit — $199</li>
+          <li>Competitor Teardown Pack — $49 <em>(new)</em></li>
+          <li>Automation Gig Templates Pack — $29 <em>(new)</em></li>
+          <li>Local LLM Async Audit Template — $29</li>
+          <li>Local-LLM Signal Drop — $19</li>
+          <li>Polymarket Research Pack — $19 (research only)</li>
+          <li>Indie Distribution Drafts Pack — $19</li>
+          <li>SMB Review-Ask Scripts Pack — $15</li>
+          <li>Local LLM Checklist Pack — $9</li>
+          <li>Show HN / Launch Reply Pack — $9</li>
+          <li>Free magnet: Local-LLM Setup Checklist — $0 (download on site)</li>
+        </ul>
+      </div>
+
+      <p>
+        <a class="btn btn-ghost" href="index.html">← Back to kit</a>
+        <a class="btn btn-primary" href="https://mempool.space/address/bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg" target="_blank" rel="noopener">Watch BTC</a>
+        <a class="btn btn-ghost" href="https://etherscan.io/address/0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8" target="_blank" rel="noopener">Watch ETH</a>
+      </p>
       <p class="hint">MIT kits · No subscription · <strong>NOT financial advice. NOT a recommendation to bet.</strong> Research packs are education only. Card/Lemon path returns when the store is activated.</p>
     </div>
   </main>
@@ -65,11 +106,59 @@
         description: "A ready ops pack for small home-services shops: booking, SMS, Google Business drafts, and n8n stubs.",
         zip: "local-biz-ops-kit-v0.1.0.zip"
       },
+      "competitor-teardown-pack": {
+        name: "Competitor Teardown Pack",
+        price: "$49",
+        description: "Market/competitor teardown brief (Activepieces sample + blank template). Public sources + judgment overlay. NOT investment advice.",
+        zip: "competitor-teardown-pack-v0.1.0.zip"
+      },
+      "automation-gig-templates-pack": {
+        name: "Automation Gig Templates Pack",
+        price: "$29",
+        description: "Before→after Zapier/Make/n8n gig templates (retry+DLQ, lead-router dedupe). Templates/education only — not a live engagement.",
+        zip: "automation-gig-templates-pack-v0.1.0.zip"
+      },
+      "local-llm-audit-template": {
+        name: "Local LLM Async Audit Template",
+        price: "$29",
+        description: "Worksheet to productize an async local-LLM setup audit (environment, Ollama, agent loop, eval).",
+        zip: "local-llm-audit-template.md"
+      },
+      "local-llm-signal-drop": {
+        name: "Local-LLM Signal Drop",
+        price: "$19",
+        description: "Structured local-LLM signals: models, tooling, VRAM notes, notable releases.",
+        zip: "local-llm-signal-drop-v0.1.0.zip"
+      },
       "polymarket-research-pack": {
         name: "Polymarket Research Pack",
         price: "$19",
         description: "Weekly-style research brief: top markets snapshot, odds deltas (EXAMPLE when live scrape unavailable), sources list. NOT financial advice. NOT a recommendation to bet.",
         zip: "polymarket-research-pack-v0.1.0.zip"
+      },
+      "distribution-drafts-pack": {
+        name: "Indie Distribution Drafts Pack",
+        price: "$19",
+        description: "Channel/distribution draft copy for launching indie agent kits.",
+        zip: "rank1-distribution-drafts.md"
+      },
+      "smb-review-scripts-pack": {
+        name: "SMB Review-Ask Scripts Pack",
+        price: "$15",
+        description: "Warm review-ask SMS/email scripts for home-services (no cold spam).",
+        zip: "02-smb-review-ask-scripts.md"
+      },
+      "local-llm-checklist-pack": {
+        name: "Local LLM Checklist Pack",
+        price: "$9",
+        description: "Notion-ready local LLM setup + SMB review checklist (paid twin of the free magnet).",
+        zip: "checklist-pack-v0.1.zip"
+      },
+      "hn-reply-pack": {
+        name: "Show HN / Launch Reply Pack",
+        price: "$9",
+        description: "Honest reply snippets for pricing, ZIP contents, Ollama-only, MIT, and BTC vs Lemon test mode.",
+        zip: "hn-reply-pack.md"
       }
     };
     const defaultSku = "ollama-local-agent-kit";
@@ -77,7 +166,8 @@
     const priceBadge = document.getElementById("price-badge");
     const productName = document.getElementById("product-name");
     const productDescription = document.getElementById("product-description");
-    const amount = document.getElementById("amount");
+    const amountBtc = document.getElementById("amount-btc");
+    const amountEth = document.getElementById("amount-eth");
     const emailLink = document.getElementById("email-link");
     const zipName = document.getElementById("zip-name");
 
@@ -88,9 +178,10 @@
       priceBadge.textContent = product.price;
       productName.textContent = product.name;
       productDescription.textContent = product.description;
-      amount.textContent = product.price + " USD in BTC";
+      amountBtc.textContent = product.price + " USD in BTC";
+      amountEth.textContent = product.price + " USD in ETH";
       zipName.textContent = product.zip;
-      emailLink.href = "mailto:dvallier@gmail.com?subject=" + encodeURIComponent(product.name + " BTC order");
+      emailLink.href = "mailto:dvallier@gmail.com?subject=" + encodeURIComponent(product.name + " crypto order");
       if (updateUrl) {
         const url = new URL(window.location.href);
         url.searchParams.set("sku", activeSku);

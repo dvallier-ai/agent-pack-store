@@ -1,46 +1,59 @@
 {
   "store": "Agent Pack Store",
   "updated": "2026-09-18",
+  "payments": {
+    "fulfill_email": "dvallier@gmail.com",
+    "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
+    "btc_network": "bitcoin-mainnet",
+    "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
+    "eth_network": "ethereum-mainnet",
+    "note": "Send USD equivalent at send-time spot. Prefer ETH mainnet native ETH (not Polygon USDC)."
+  },
   "kits": [
     {
       "sku": "ollama-local-agent-kit",
       "title": "Ollama Local Agent Kit",
       "price_cents": 7900,
       "currency": "USD",
-      "status": "btc_manual_or_lemon_test",
+      "status": "btc_eth_manual_or_lemon_test",
       "path": "kits/ollama-local-agent-kit",
       "version": "0.1.0",
       "audience": "engineers who want a reproducible local LLM agent setup (offline/local Ollama only)",
       "package": "dist/ollama-local-agent-kit-v0.1.0.zip",
       "checkout_url": "https://twisted-relic.lemonsqueezy.com/checkout/buy/e84cbcae-1f17-418c-a309-83f6d7e7542e",
       "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
-      "btc_pay_page": "docs/pay-btc.html"
+      "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
+      "btc_pay_page": "docs/pay-btc.html?sku=ollama-local-agent-kit"
     },
     {
       "sku": "local-llm-signal-drop",
       "title": "Local-LLM Signal Drop",
       "price_cents": 1900,
       "currency": "USD",
-      "status": "coming_soon",
-      "listing": "draft",
+      "status": "btc_eth_manual",
+      "listing": "ready",
       "path": "kits/local-llm-signal-drop",
       "version": "0.1.0",
       "audience": "local-LLM users who want structured model, tooling, VRAM, and notable-release signals",
-      "package": "kits/local-llm-signal-drop/dist/local-llm-signal-drop-v0.1.0.zip"
+      "package": "kits/local-llm-signal-drop/dist/local-llm-signal-drop-v0.1.0.zip",
+      "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
+      "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
+      "btc_pay_page": "docs/pay-btc.html?sku=local-llm-signal-drop"
     },
     {
       "sku": "local-biz-ops-kit",
       "title": "Local Biz Ops Kit",
       "price_cents": 19900,
       "currency": "USD",
-      "price_shelf": "$149\u2013$299",
-      "status": "btc_manual",
+      "price_shelf": "$149–$299",
+      "status": "btc_eth_manual",
       "listing": "warm_trial",
       "path": "kits/local-biz-ops-kit",
       "version": "0.1.0",
-      "audience": "small home-services (locksmith, plumber, HVAC-class) \u2014 warm buyers first",
+      "audience": "small home-services (locksmith, plumber, HVAC-class) — warm buyers first",
       "package": "kits/local-biz-ops-kit/dist/local-biz-ops-kit-v0.1.0.zip",
       "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
+      "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
       "btc_pay_page": "docs/pay-btc.html?sku=local-biz-ops-kit",
       "includes": [
         "static booking page",
@@ -55,13 +68,14 @@
       "title": "Polymarket Research Pack",
       "price_cents": 1900,
       "currency": "USD",
-      "status": "btc_manual",
+      "status": "btc_eth_manual",
       "listing": "research_brief",
       "path": "kits/polymarket-research-pack",
       "version": "0.1.0",
-      "audience": "readers who want structured prediction-market research briefs (education only \u2014 never betting advice)",
+      "audience": "readers who want structured prediction-market research briefs (education only — never betting advice)",
       "package": "kits/polymarket-research-pack/dist/polymarket-research-pack-v0.1.0.zip",
       "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
+      "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
       "btc_pay_page": "docs/pay-btc.html?sku=polymarket-research-pack",
       "includes": [
         "weekly-style research brief zip",
@@ -71,6 +85,129 @@
         "DISCLOSURE.md on every pack"
       ],
       "disclaimer": "NOT financial advice. NOT a recommendation to bet. Research/education only."
+    },
+    {
+      "sku": "competitor-teardown-pack",
+      "title": "Competitor Teardown Pack",
+      "price_cents": 4900,
+      "currency": "USD",
+      "status": "btc_eth_manual",
+      "listing": "ready",
+      "path": "kits/competitor-teardown-pack",
+      "version": "0.1.0",
+      "audience": "indie SaaS / agencies evaluating automation vendors from public sources",
+      "package": "kits/competitor-teardown-pack/dist/competitor-teardown-pack-v0.1.0.zip",
+      "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
+      "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
+      "btc_pay_page": "docs/pay-btc.html?sku=competitor-teardown-pack",
+      "includes": [
+        "Activepieces sample teardown",
+        "blank 8-section template",
+        "DISCLAIMER.md"
+      ],
+      "disclaimer": "NOT investment advice. Public sources + judgment overlay only."
+    },
+    {
+      "sku": "automation-gig-templates-pack",
+      "title": "Automation Gig Templates Pack",
+      "price_cents": 2900,
+      "currency": "USD",
+      "status": "btc_eth_manual",
+      "listing": "ready",
+      "path": "kits/automation-gig-templates-pack",
+      "version": "0.1.0",
+      "audience": "freelancers packaging fixed-price Zapier/Make/n8n repair micro-gigs",
+      "package": "kits/automation-gig-templates-pack/dist/automation-gig-templates-pack-v0.1.0.zip",
+      "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
+      "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
+      "btc_pay_page": "docs/pay-btc.html?sku=automation-gig-templates-pack",
+      "includes": [
+        "n8n webhook retry + DLQ sample",
+        "Zapier lead-router dedupe sample",
+        "blank gig brief + acceptance checklist",
+        "DISCLAIMER.md"
+      ],
+      "disclaimer": "Templates/education only. Not a live engagement or income guarantee."
+    },
+    {
+      "sku": "local-llm-checklist-pack",
+      "title": "Local LLM Checklist Pack",
+      "price_cents": 900,
+      "currency": "USD",
+      "status": "btc_eth_manual",
+      "listing": "paid_twin_of_free_magnet",
+      "path": "passive-engine/packs/checklist-pack-v0.1",
+      "version": "0.1.0",
+      "audience": "builders who want the Notion-ready local LLM + SMB review checklist as a paid SKU",
+      "package": "docs/checklist-pack-v0.1.zip",
+      "free_magnet": "docs/checklist-pack-v0.1.zip",
+      "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
+      "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
+      "btc_pay_page": "docs/pay-btc.html?sku=local-llm-checklist-pack"
+    },
+    {
+      "sku": "local-llm-audit-template",
+      "title": "Local LLM Async Audit Template",
+      "price_cents": 2900,
+      "currency": "USD",
+      "status": "ship_from_file",
+      "listing": "inventory",
+      "path": "passive-engine/audit-template.md",
+      "version": "0.1.0",
+      "audience": "operators productizing a $49–$99 async local-LLM setup audit",
+      "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
+      "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
+      "btc_pay_page": "docs/pay-btc.html?sku=local-llm-audit-template"
+    },
+    {
+      "sku": "hn-reply-pack",
+      "title": "Show HN / Launch Reply Pack",
+      "price_cents": 900,
+      "currency": "USD",
+      "status": "ship_from_file",
+      "listing": "inventory",
+      "path": "passive-engine/hn-reply-pack.md",
+      "version": "0.1.0",
+      "audience": "founders launching MIT kits who need honest pricing/BTC/Lemon replies",
+      "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
+      "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
+      "btc_pay_page": "docs/pay-btc.html?sku=hn-reply-pack"
+    },
+    {
+      "sku": "distribution-drafts-pack",
+      "title": "Indie Distribution Drafts Pack",
+      "price_cents": 1900,
+      "currency": "USD",
+      "status": "ship_from_file",
+      "listing": "inventory",
+      "path": "passive-engine/rank1-distribution-drafts.md",
+      "version": "0.1.0",
+      "audience": "indie builders drafting channel posts for kit launches",
+      "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
+      "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
+      "btc_pay_page": "docs/pay-btc.html?sku=distribution-drafts-pack"
+    },
+    {
+      "sku": "smb-review-scripts-pack",
+      "title": "SMB Review-Ask Scripts Pack",
+      "price_cents": 1500,
+      "currency": "USD",
+      "status": "ship_from_file",
+      "listing": "inventory",
+      "path": "passive-engine/packs/checklist-pack-v0.1/02-smb-review-ask-scripts.md",
+      "version": "0.1.0",
+      "audience": "home-services operators — warm review-ask SMS/email only",
+      "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
+      "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
+      "btc_pay_page": "docs/pay-btc.html?sku=smb-review-scripts-pack"
+    }
+  ],
+  "free": [
+    {
+      "sku": "checklist-pack-v0.1",
+      "title": "Local-LLM Setup Checklist (free magnet)",
+      "price_cents": 0,
+      "package": "docs/checklist-pack-v0.1.zip"
     }
   ]
 }

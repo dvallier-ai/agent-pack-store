@@ -1,5 +1,15 @@
 # Changelog — Agent Pack Store
 
+## 0.4.0 — 2026-09-18
+
+### Added
+- SKU: `competitor-teardown-pack` v0.1.0 — $49 (Activepieces sample + blank template).
+- SKU: `automation-gig-templates-pack` v0.1.0 — $29 (n8n retry/DLQ + Zapier lead-router samples).
+- Crypto catalog expansion: 10 SKUs in $9–$79 band (+ Biz Ops $199) documented in Passive Engine.
+- ETH mainnet receive on pay page: `0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8` (native ETH; not Polygon USDC).
+- Pay page lists all crypto SKUs; BTC + ETH sections; Etherscan watch link.
+- `catalog.json` payments block + new kit entries.
+
 ## 0.3.0 — 2026-09-18
 
 ### Added
