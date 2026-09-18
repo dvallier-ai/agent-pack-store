@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Free sample — local Ollama agent snippet · Agent Pack Store</title>
+  <meta name="description" content="Free runnable Python snippet that talks to local Ollama. Full kit $79 via BTC." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    pre.snippet {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      line-height: 1.45;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap inner">
+      <a class="logo" href="index.html">Agent Pack Store</a>
+      <nav>
+        <a href="sample.html">Sample</a>
+        <a href="index.html">Kit</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="pay-btc.html">Pay with BTC</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap" style="padding:2.5rem 1rem; max-width:46rem;">
+      <div class="badge-row">
+        <span class="badge">Free</span>
+        <span class="badge">Runnable snippet</span>
+        <span class="badge warn">Needs local Ollama</span>
+      </div>
+      <h1>Try a taste: local Ollama agent snippet</h1>
+      <p class="lede">
+        One copy-paste Python script that hits <code>localhost:11434</code>.
+        Offline only — no cloud API keys. The full kit adds install scripts, a chat/tool loop, and an eval harness.
+      </p>
+      <div class="callout">
+        <strong>Requires:</strong> Ollama running locally with a small model pulled
+        (e.g. <code>ollama pull llama3.2:1b</code> then <code>ollama serve</code>).
+      </div>
+      <h2>Snippet</h2>
+      <pre class="snippet">#!/usr/bin/env python3
+"""Minimal local Ollama call — taste of the Agent Pack Store kit."""
+import json, urllib.request
+
+OLLAMA = "http://127.0.0.1:11434/api/generate"
+MODEL = "llama3.2:1b"  # change if you pulled a different tag
+PROMPT = "Reply in one short sentence: what is a local LLM agent?"
+
+payload = json.dumps({"model": MODEL, "prompt": PROMPT, "stream": False}).encode()
+req = urllib.request.Request(OLLAMA, data=payload, headers={"Content-Type": "application/json"})
+with urllib.request.urlopen(req, timeout=120) as resp:
+    data = json.load(resp)
+print(data.get("response", data))</pre>
+      <h2>Verify</h2>
+      <ol>
+        <li>Save as <code>taste.py</code> and run <code>python3 taste.py</code>.</li>
+        <li>You should see a short plain-text reply from the model (not an HTTP error).</li>
+        <li>If connection refused: start Ollama, confirm the model tag, retry.</li>
+      </ol>
+      <h2>Want the full kit?</h2>
+      <p>
+        Packaged zip ($79): <code>install.sh</code>, Python agent (single-shot + chat + tool stub),
+        eval harness with fixtures → <code>report.json</code> / <code>report.md</code>, docs. MIT.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="pay-btc.html">Pay with BTC — $79</a>
+        <a class="btn btn-ghost" href="https://github.com/dvallier-ai/agent-pack-store">Repo</a>
+        <a class="btn btn-ghost" href="https://github.com/dvallier-ai/agent-pack-store/issues/1">Feedback (Issue #1)</a>
+      </div>
+      <p class="hint">
+        Live pay path: send $79 USD equivalent in BTC, email txid to <code>dvallier@gmail.com</code>, get the zip.
+        Lemon/card checkout is still TEST/parked — don’t use it for a real purchase yet.
+      </p>
+    </div>
+  </main>
+</body>
+</html>
