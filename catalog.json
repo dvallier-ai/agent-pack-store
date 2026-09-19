@@ -263,6 +263,90 @@
       "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
       "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
       "btc_pay_page": "docs/pay-btc.html?sku=smb-review-scripts-pack"
+    },
+    {
+      "sku": "prompt-ollama-loop-debugger",
+      "title": "Ollama Local Agent Loop Debugger Prompts",
+      "price_cents": 699,
+      "currency": "USD",
+      "status": "ready_inventory",
+      "listing": "ready",
+      "path": "packs/prompt-packs-v0.1/ollama-local-agent-loop-debugger",
+      "version": "0.1.0",
+      "audience": "builders debugging local Ollama agent loops (OOM, bind, silent death, tool parse)",
+      "package": "packs/prompt-packs-v0.1/ollama-local-agent-loop-debugger-v0.1.zip",
+      "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
+      "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
+      "btc_pay_page": "docs/pay-btc.html?sku=prompt-ollama-loop-debugger",
+      "includes": [
+        "12 copy-paste debugger prompts + system companion",
+        "README buyer instructions",
+        "listing.md for PromptBase"
+      ],
+      "disclaimer": "Educational templates only. Not affiliated with Ollama. No income claims."
+    },
+    {
+      "sku": "prompt-n8n-make-triage",
+      "title": "n8n/Make Failure Triage Prompt Pack",
+      "price_cents": 599,
+      "currency": "USD",
+      "status": "ready_inventory",
+      "listing": "ready",
+      "path": "packs/prompt-packs-v0.1/n8n-make-failure-triage",
+      "version": "0.1.0",
+      "audience": "freelancers/ops triaging broken n8n and Make workflows",
+      "package": "packs/prompt-packs-v0.1/n8n-make-failure-triage-v0.1.zip",
+      "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
+      "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
+      "btc_pay_page": "docs/pay-btc.html?sku=prompt-n8n-make-triage",
+      "includes": [
+        "14 triage + client-update prompts",
+        "README with redaction rules",
+        "listing.md for PromptBase"
+      ],
+      "disclaimer": "Not affiliated with n8n or Make. Prompts only \u2014 no workflow JSON. No income claims."
+    },
+    {
+      "sku": "prompt-gbp-7day-home-services",
+      "title": "GBP 7-Day Post+Q&A Prompt Pack (Home Services)",
+      "price_cents": 799,
+      "currency": "USD",
+      "status": "ready_inventory",
+      "listing": "ready",
+      "path": "packs/prompt-packs-v0.1/gbp-7day-post-qa-home-services",
+      "version": "0.1.0",
+      "audience": "home-services owners/marketers drafting Google Business Profile posts + Q&A",
+      "package": "packs/prompt-packs-v0.1/gbp-7day-post-qa-home-services-v0.1.zip",
+      "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
+      "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
+      "btc_pay_page": "docs/pay-btc.html?sku=prompt-gbp-7day-home-services",
+      "includes": [
+        "14 prompts: intake, 7-day posts, Q&A bank, voice/shorten/approval",
+        "Compliance guards (no fake reviews/ranking claims)",
+        "listing.md for PromptBase"
+      ],
+      "disclaimer": "Not affiliated with Google. No ranking or income guarantees. Owner must verify all facts."
+    },
+    {
+      "sku": "prompt-packs-bundle-v0.1",
+      "title": "Prompt Packs Bundle v0.1 (3 packs)",
+      "price_cents": 1499,
+      "currency": "USD",
+      "status": "ready_inventory",
+      "listing": "ready",
+      "path": "packs/prompt-packs-v0.1",
+      "version": "0.1.0",
+      "audience": "buyers who want all three shipped prompt packs",
+      "package": "packs/prompt-packs-v0.1/prompt-packs-v0.1-combined.zip",
+      "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
+      "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
+      "btc_pay_page": "docs/pay-btc.html?sku=prompt-packs-bundle-v0.1",
+      "includes": [
+        "Ollama debugger prompt pack",
+        "n8n/Make triage prompt pack",
+        "GBP 7-day post + Q&A prompt pack"
+      ],
+      "disclaimer": "Prompt templates only. Not affiliated with Ollama, n8n, Make, or Google. No income or ranking guarantees."
     }
   ],
   "free": [
