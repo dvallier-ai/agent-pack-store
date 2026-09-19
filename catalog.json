@@ -571,6 +571,31 @@
         "DISCLAIMER"
       ],
       "disclaimer": "Scripts/docs only. Not a hosted STT service. No paid cloud required for default path."
+    },
+    {
+      "sku": "trading-ops-paper-live-checklist",
+      "title": "Trading Ops / Paper\u2192Live Checklist Pack",
+      "price_cents": 2900,
+      "currency": "USD",
+      "status": "btc_eth_manual",
+      "listing": "ready",
+      "path": "kits/trading-ops-paper-live-checklist",
+      "version": "0.1.0",
+      "brand": "Paper Desk Ops",
+      "audience": "operators testing a BTC strategy in paper mode who need a documented risk and process gate",
+      "package": "kits/trading-ops-paper-live-checklist/trading-ops-paper-live-checklist-v0.1.zip",
+      "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
+      "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
+      "btc_pay_page": "docs/pay-btc.html?sku=trading-ops-paper-live-checklist",
+      "includes": [
+        "paper-to-live readiness checklist",
+        "risk-cap worksheet (placeholders)",
+        "daily trade journal template",
+        "kill-rule card",
+        "go/no-go review gate",
+        "DISCLAIMER"
+      ],
+      "disclaimer": "Paper \u2260 income. Educational ops checklist only \u2014 NOT financial advice. No live-return claims. Paper3 ~$91K/\u22128.8% is paper-only context for why risk caps matter, not performance marketing."
     }
   ],
   "free": [

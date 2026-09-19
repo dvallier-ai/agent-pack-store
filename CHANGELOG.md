@@ -1,3 +1,10 @@
+## 0.7.0 — 2026-09-19
+
+### Added
+- SKU: `trading-ops-paper-live-checklist` v0.1.0 — $29 (Paper Desk Ops; paper→live checklist + risk caps + kill rules + journal; paper-only confirmed; no live-return claims).
+- Inventory zip: `kits/trading-ops-paper-live-checklist/trading-ops-paper-live-checklist-v0.1.zip`.
+- BTC/ETH pay selector + catalog + index card; docs/site sync.
+
 ## 0.6.0 — 2026-09-19
 
 ### Added
