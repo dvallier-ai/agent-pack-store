@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invoice INV-YYYYMMDD-001</title>
+  <style>
+    :root { font-family: system-ui, -apple-system, Segoe UI, sans-serif; color: #111; }
+    body { max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.45; }
+    h1 { font-size: 1.5rem; margin: 0 0 0.25rem; }
+    .meta { color: #444; margin-bottom: 1.5rem; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin: 1.25rem 0; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    th, td { border-bottom: 1px solid #ddd; padding: 0.5rem 0.35rem; text-align: left; }
+    th { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.03em; color: #555; }
+    .total { font-size: 1.15rem; font-weight: 700; }
+    .hint { font-size: 0.85rem; color: #666; }
+    @media print { body { margin: 0; } .noprint { display: none; } }
+  </style>
+</head>
+<body>
+  <p class="noprint hint">Edit the bracketed fields → File → Print → Save as PDF.</p>
+  <h1>Invoice</h1>
+  <p class="meta">
+    <strong>INV-YYYYMMDD-001</strong><br />
+    Issue: YYYY-MM-DD · Due: YYYY-MM-DD · Status: Unpaid
+  </p>
+
+  <div class="grid">
+    <div>
+      <strong>From</strong><br />
+      [Your name / DBA]<br />
+      [you@domain]<br />
+      [Address optional]
+    </div>
+    <div>
+      <strong>Bill to</strong><br />
+      [Client name]<br />
+      [ap@client]<br />
+      PO / project: [PO #]
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>#</th><th>Description</th><th>Qty</th><th>Rate</th><th>Amount</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>[Deliverable]</td><td>1</td><td>$X</td><td>$X</td></tr>
+      <tr><td>2</td><td>[Optional expense]</td><td>1</td><td>$Y</td><td>$Y</td></tr>
+    </tbody>
+  </table>
+
+  <p>Subtotal: $Z<br />Tax: $0.00<br /><span class="total">Total due: $Z</span></p>
+
+  <p><strong>Payment</strong><br />
+    Preferred: [ACH / Wise / check]<br />
+    Memo: INV-YYYYMMDD-001
+  </p>
+
+  <p class="hint">Education template — Freelancer Invoice Chase Pack · not legal advice.</p>
+</body>
+</html>

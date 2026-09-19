@@ -1,3 +1,10 @@
+## 0.6.0 — 2026-09-19
+
+### Added
+- SKU: `freelancer-invoice-chase-pack` v0.1.0 — $15 (invoice MD/HTML + chase email/SMS cadence; education templates; pairs with accounting-micro).
+- SKU: `local-whisper-transcription-workflow-pack` v0.1.0 — $29 (local Whisper scripts + Mac/local docs; no paid cloud STT required).
+- Inventory zips under each kit path; BTC/ETH pay selector + catalog + index cards; docs/site sync.
+
 ## 0.5.0 — 2026-09-19
 
 ### Added

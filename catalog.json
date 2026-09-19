@@ -525,6 +525,52 @@
       "seller_never": "QuickBooks/bank passwords, MFA, or live admin access",
       "disclaimer": "NOT tax advice. NOT a CPA service. NOT filing/representation. Buyer pastes export/CSV \u2014 seller never logs into QuickBooks.",
       "btc_pay_page": "docs/pay-btc.html?sku=acct-qb-cleanup-intake"
+    },
+    {
+      "sku": "freelancer-invoice-chase-pack",
+      "title": "Freelancer Invoice Chase Pack",
+      "price_cents": 1500,
+      "currency": "USD",
+      "status": "btc_eth_manual",
+      "listing": "ready",
+      "path": "kits/freelancer-invoice-chase-pack",
+      "version": "0.1.0",
+      "audience": "freelancers who need invoice templates + polite chase cadence (pairs with accounting-micro)",
+      "package": "kits/freelancer-invoice-chase-pack/freelancer-invoice-chase-pack-v0.1.zip",
+      "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
+      "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
+      "btc_pay_page": "docs/pay-btc.html?sku=freelancer-invoice-chase-pack",
+      "includes": [
+        "invoice MD + printable HTML",
+        "chase email cadence (Day 0/+7/+14/+21)",
+        "SMS cadence (warm clients)",
+        "payment-terms blurbs",
+        "DISCLAIMER"
+      ],
+      "disclaimer": "Education templates only. Not legal, collections, or tax advice. Not a CPA service."
+    },
+    {
+      "sku": "local-whisper-transcription-workflow-pack",
+      "title": "Local Whisper Transcription Workflow Pack",
+      "price_cents": 2900,
+      "currency": "USD",
+      "status": "btc_eth_manual",
+      "listing": "ready",
+      "path": "kits/local-whisper-transcription-workflow-pack",
+      "version": "0.1.0",
+      "audience": "indie/HN builders who want local speech-to-text without paid cloud STT",
+      "package": "kits/local-whisper-transcription-workflow-pack/local-whisper-transcription-workflow-pack-v0.1.zip",
+      "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
+      "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
+      "btc_pay_page": "docs/pay-btc.html?sku=local-whisper-transcription-workflow-pack",
+      "includes": [
+        "doctor + transcribe + batch scripts",
+        "Mac-first install docs",
+        "inbox\u2192markdown workflow",
+        "HN dogfood notes",
+        "DISCLAIMER"
+      ],
+      "disclaimer": "Scripts/docs only. Not a hosted STT service. No paid cloud required for default path."
     }
   ],
   "free": [
