@@ -1,6 +1,6 @@
 {
   "store": "Agent Pack Store",
-  "updated": "2026-09-18",
+  "updated": "2026-09-19",
   "payments": {
     "fulfill_email": "dvallier@gmail.com",
     "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
@@ -26,6 +26,28 @@
       "btc_pay_page": "docs/pay-btc.html?sku=ollama-local-agent-kit"
     },
     {
+      "sku": "ollama-agent-loops-course",
+      "title": "Ollama Agent Loops Mini-Course Pack",
+      "price_cents": 3900,
+      "currency": "USD",
+      "status": "ready_inventory",
+      "listing": "ready",
+      "path": "passive-engine/packs/ollama-agent-loops-course-v0.1",
+      "version": "0.1.0",
+      "audience": "hobbyist local-LLM users stuck on agent loops (OOM, API bind, silent death loops) \u2014 self-serve teach pack",
+      "package": "passive-engine/packs/ollama-agent-loops-course-v0.1.zip",
+      "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
+      "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
+      "btc_pay_page": "docs/pay-btc.html?sku=ollama-agent-loops-course",
+      "includes": [
+        "7 markdown modules (setup boundaries \u2192 license)",
+        "debugging checklist aligned with audit template",
+        "sample system/user prompts",
+        "no fake case studies or earnings claims"
+      ],
+      "disclaimer": "Educational materials only. Not affiliated with Ollama. No income claims."
+    },
+    {
       "sku": "local-llm-signal-drop",
       "title": "Local-LLM Signal Drop",
       "price_cents": 1900,
@@ -45,12 +67,12 @@
       "title": "Local Biz Ops Kit",
       "price_cents": 19900,
       "currency": "USD",
-      "price_shelf": "$149–$299",
+      "price_shelf": "$149\u2013$299",
       "status": "btc_eth_manual",
       "listing": "warm_trial",
       "path": "kits/local-biz-ops-kit",
       "version": "0.1.0",
-      "audience": "small home-services (locksmith, plumber, HVAC-class) — warm buyers first",
+      "audience": "small home-services (locksmith, plumber, HVAC-class) \u2014 warm buyers first",
       "package": "kits/local-biz-ops-kit/dist/local-biz-ops-kit-v0.1.0.zip",
       "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
       "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
@@ -72,7 +94,7 @@
       "listing": "research_brief",
       "path": "kits/polymarket-research-pack",
       "version": "0.1.0",
-      "audience": "readers who want structured prediction-market research briefs (education only — never betting advice)",
+      "audience": "readers who want structured prediction-market research briefs (education only \u2014 never betting advice)",
       "package": "kits/polymarket-research-pack/dist/polymarket-research-pack-v0.1.0.zip",
       "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
       "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
@@ -122,7 +144,7 @@
       "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
       "btc_pay_page": "docs/pay-btc.html?sku=n8n-local-agent-workflow-pack",
       "includes": [
-        "webhook → Ollama chat workflow JSON",
+        "webhook \u2192 Ollama chat workflow JSON",
         "webhook retry + dead-letter stub",
         "scheduled Ollama digest stub",
         "import/run docs"
@@ -195,7 +217,7 @@
       "listing": "inventory",
       "path": "passive-engine/audit-template.md",
       "version": "0.1.0",
-      "audience": "operators productizing a $49–$99 async local-LLM setup audit",
+      "audience": "operators productizing a $49\u2013$99 async local-LLM setup audit",
       "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
       "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
       "btc_pay_page": "docs/pay-btc.html?sku=local-llm-audit-template"
@@ -237,7 +259,7 @@
       "listing": "inventory",
       "path": "passive-engine/packs/checklist-pack-v0.1/02-smb-review-ask-scripts.md",
       "version": "0.1.0",
-      "audience": "home-services operators — warm review-ask SMS/email only",
+      "audience": "home-services operators \u2014 warm review-ask SMS/email only",
       "btc_address": "bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg",
       "eth_address": "0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8",
       "btc_pay_page": "docs/pay-btc.html?sku=smb-review-scripts-pack"
