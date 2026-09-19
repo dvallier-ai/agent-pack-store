@@ -1,9 +1,10 @@
 ## 0.5.0 — 2026-09-19
 
 ### Added
-- SKU: `ollama-agent-loops-course` v0.1.0 — $39 (self-serve Ollama agent-loops mini-course zip; BTC/ETH manual; status ready_inventory).
-- Inventory: `passive-engine/packs/ollama-agent-loops-course-v0.1.zip` (7 markdown modules).
+- SKU: `ollama-agent-loops-course` v0.1.0 — $39 (self-serve Ollama agent-loops mini-course zip; BTC/ETH manual; status btc_eth_manual).
+- Inventory: `kits/ollama-agent-loops-course/dist/ollama-agent-loops-course-v0.1.zip` (7 markdown modules + kit tree).
 - Pay selector + catalog list entry; Shane Hummus “knowledge money” filter → niche course lane.
+- Kit tree shipped under `kits/ollama-agent-loops-course/` (README/CHANGELOG/modules + dist zip); index card + docs sync.
 
 # Changelog — Agent Pack Store
 

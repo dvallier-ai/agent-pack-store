@@ -49,6 +49,8 @@
           <option value="prompt-n8n-make-triage">n8n/Make Failure Triage Prompt Pack — $5.99</option>
           <option value="prompt-gbp-7day-home-services">GBP 7-Day Post+Q&A Prompt Pack (Home Services) — $7.99</option>
           <option value="prompt-packs-bundle-v0.1">Prompt Packs Bundle v0.1 (3 packs) — $14.99</option>
+          <option value="acct-qb-cleanup-intake-v0.1">Async QuickBooks Cleanup Intake — $49</option>
+          <option value="accounting-micro-v0.1">Accounting Micro Pack (templates zip) — $9</option>
         </select>
         <h2 id="product-name" style="margin-top:0;">Ollama Local Agent Kit</h2>
         <p id="product-description">A reproducible local LLM agent setup for engineers.</p>
@@ -69,8 +71,9 @@
         </p>
         <p class="hint">Say whether you paid with BTC or ETH.</p>
 
-        <h3>3. Get the zip</h3>
-        <p>We verify on-chain (BTC: 1+ confirmation; ETH: sufficient mainnet confirmations) and reply with the <code id="zip-name">ollama-local-agent-kit-v0.1.0.zip</code> download link. Usually same day PT.</p>
+        <h3 id="fulfillment-heading">3. Get the zip</h3>
+        <p id="fulfillment-copy">We verify on-chain (BTC: 1+ confirmation; ETH: sufficient mainnet confirmations) and reply with the <code id="zip-name">ollama-local-agent-kit-v0.1.0.zip</code> download link. Usually same day PT.</p>
+        <p id="product-disclaimer" class="hint"></p>
       </div>
 
       <div class="card" style="margin:1.5rem 0; padding:1.25rem;">
@@ -93,6 +96,8 @@
           <li>n8n/Make Failure Triage Prompt Pack — $5.99 <em>(new)</em></li>
           <li>GBP 7-Day Post+Q&A Prompt Pack (Home Services) — $7.99 <em>(new)</em></li>
           <li>Prompt Packs Bundle v0.1 (3 packs) — $14.99 <em>(new)</em></li>
+          <li>Async QuickBooks Cleanup Intake — $49 <em>(new)</em></li>
+          <li>Accounting Micro Pack (templates zip) — $9 <em>(new)</em></li>
           <li>Free magnet: Local-LLM Setup Checklist — $0 (download on site)</li>
         </ul>
       </div>
@@ -214,6 +219,20 @@
         price: "$14.99",
         description: "All three shipped prompt packs: Ollama debugging, n8n/Make triage, and GBP home-services content.",
         zip: "prompt-packs-v0.1-combined.zip"
+      },
+      "acct-qb-cleanup-intake-v0.1": {
+        name: "Async QuickBooks Cleanup Intake",
+        price: "$49",
+        description: "Send redacted QuickBooks screenshots and receive a prioritized P0/P1/P2 cleanup list with DIY next steps — not bookkeeping, tax filing, or a CPA service.",
+        fulfillment: "We verify on-chain (BTC: 1+ confirmation; ETH: sufficient mainnet confirmations), then email your prioritized cleanup list within 3 business days after a complete redacted intake is received.",
+        disclaimer: "Not tax advice. Not a CPA. You remain responsible for your books and filings."
+      },
+      "accounting-micro-v0.1": {
+        name: "Accounting Micro Pack (templates zip)",
+        price: "$9",
+        description: "Receipt-to-category prompt, monthly bookkeeping checklist, and QuickBooks cleanup intake template. Templates only — verify every suggestion.",
+        zip: "accounting-micro-v0.1.zip",
+        disclaimer: "Templates only. Not tax advice. Not a CPA service. Verify every categorization."
       }
     };
     const defaultSku = "ollama-local-agent-kit";
@@ -225,6 +244,9 @@
     const amountEth = document.getElementById("amount-eth");
     const emailLink = document.getElementById("email-link");
     const zipName = document.getElementById("zip-name");
+    const fulfillmentCopy = document.getElementById("fulfillment-copy");
+    const productDisclaimer = document.getElementById("product-disclaimer");
+    const fulfillmentHeading = document.getElementById("fulfillment-heading");
 
     function showProduct(sku, updateUrl) {
       const product = products[sku] || products[defaultSku];
